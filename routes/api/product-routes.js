@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 // find a single product by its `id` ✓
 // be sure to include its associated Category and Tag data ✓
 router.get('/:id', (req, res) => {
-  Product.findThatProduct(req.params.id, {
+  Product.findByPk(req.params.id, {
     where: {
       id: req.params.id
     },
@@ -52,15 +52,15 @@ router.get('/:id', (req, res) => {
     }],
   }).then((foundProductData) => {
     if (!foundProductData) {
-      res.status(404).json({ message: '404 Product Data Not Found. But you know what CAN be found? Fantastic deals on games, gadgets, sports, and movies, and more on this website!!'});
+      res.status(404).json({ message: '404 Product Data Not Found. But you know what CAN be found? Fantastic deals on games, gadgets, sports, and movies, and more on this website!!' });
       return;
     }
     res.json(foundProductData)
   })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 
 });
 
@@ -68,14 +68,14 @@ router.get('/:id', (req, res) => {
 // create new product ✓
 
 // Example product for below:
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
+/* req.body should look like this...
+  {
+    product_name: "Basketball",
+    price: 200.00,
+    stock: 3,
+    tagIds: [1, 2, 3, 4]
+  }
+*/
 
 router.post('/', (req, res) => {
 
@@ -84,11 +84,11 @@ router.post('/', (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
-    tagIds: req.body.tagIds
+    tagIds: req.body.tagIds,
+ 
   })
-
-
     .then((product) => {
+
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
@@ -110,7 +110,7 @@ router.post('/', (req, res) => {
 });
 
 
-    //FLAG: CONTINUE WORK HERE
+//FLAG: CONTINUE WORK HERE
 // update product
 router.put('/:id', (req, res) => {
   // update product data
@@ -163,15 +163,15 @@ router.delete('/:id', (req, res) => {
     }
   }).then((deletedProduct) => {
     if (!deletedProduct) {
-      res.status(404).json({ message: '404 Product Data Not Found. But you know what CAN be found? Fantastic deals on games, gadgets, sports, and movies, and more on this website!!'});
+      res.status(404).json({ message: '404 Product Data Not Found. But you know what CAN be found? Fantastic deals on games, gadgets, sports, and movies, and more on this website!!' });
       return;
     }
     res.json(deletedProduct)
   })
-  .catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
