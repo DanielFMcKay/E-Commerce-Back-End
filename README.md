@@ -9,13 +9,16 @@
 * Although the instructions technically call for using Insomnia, this cohort is using Postman and we have specifically been instructed to use that instead.
 * There is no live site, as such a demo video has been recorded and attached.
 
+### Development Update
+* In response to feedback from the initial submission, I have resolved an issue where the app failed to delete a category with existing products due to a foreign key constraint. This is demonstrated in the updated walkthrough video.
+
 ## Installation
 
 * Please open a command line interface such as Git Bash, and navigate to the root folder. If the folder has not been initiallized, enter the line "run npm init -y". Then enter the line "npm i" to install all the dependencies in the package.json. If for some reason you do not have this, please run "npm i mysql2 dotenv express sequelize".
 * Then go into mysql with the line "mysql -u root -p" and enter your password. Then enter the line "source db/schema.sql". Then type out "exit" to leave mysql.
 * Next, seed the data using the line "npm run seed", and start the program using "node server.js" or "nodemon server.js". The server is now running and you can manipulate it in Postman as shown in the demo video.
 
-## Demo Video Link: https://drive.google.com/file/d/1m8jxaZS7V6eBFm5KzzhKySknV6R6-tPf/view
+## Demo Video Link: https://drive.google.com/file/d/1Mu42jGOZnA60nPjgej0BmbHd2D-qgLbg/view
 
 ## User Story
 
