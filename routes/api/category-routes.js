@@ -91,7 +91,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({ message: "404 Category Data Not Found. But you know what CAN be found? Fantastic deals for Mother's Day!! You DO love your mother right?" });
       return;
     }
-    res.json(deletedCategoryData);
+    res.json("Category Deleted");
 
   }).catch((err) => {
     console.log(err);

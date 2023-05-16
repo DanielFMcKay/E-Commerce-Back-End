@@ -166,7 +166,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({ message: '404 Product Data Not Found. But you know what CAN be found? Fantastic deals on games, gadgets, sports, and movies, and more on this website!!' });
       return;
     }
-    res.json(deletedProduct)
+    res.json("Product Deleted")
   })
     .catch((err) => {
       console.log(err);

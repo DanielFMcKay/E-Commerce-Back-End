@@ -92,7 +92,7 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ message: '404 Tag Data Not Found. But you know what CAN be found? Fantastic deals on fashion, music, and more on this website!!' });
         return;
       }
-      res.json(deletedTagData);
+      res.json("Tag Deleted");
     })
       .catch((err) => {
         console.log(err);
